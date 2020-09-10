@@ -68,6 +68,21 @@ static SSL_CIPHER tls13_ciphers[] = {
         SSL_HANDSHAKE_MAC_SHA384,
         256,
         256,
+    },{
+        1,
+        TLS1_3_RFC_AES_256_GCM_SHA512,
+        TLS1_3_RFC_AES_256_GCM_SHA512,
+        TLS1_3_CK_AES_256_GCM_SHA512,
+        SSL_kANY,
+        SSL_aANY,
+        SSL_AES256GCM,
+        SSL_AEAD,
+        TLS1_3_VERSION, TLS1_3_VERSION,
+        0, 0,
+        SSL_HIGH,
+        SSL_HANDSHAKE_MAC_SHA512,
+        256,
+        256,
     },
 #if !defined(OPENSSL_NO_CHACHA) && !defined(OPENSSL_NO_POLY1305)
     {

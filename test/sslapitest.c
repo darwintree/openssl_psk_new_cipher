@@ -4453,6 +4453,7 @@ static int test_tls13_ciphersuite(int idx)
         { TLS1_3_RFC_AES_128_GCM_SHA256, 1 },
         { TLS1_3_RFC_AES_256_GCM_SHA384, 1 },
         { TLS1_3_RFC_AES_128_CCM_SHA256, 1 },
+        { TLS1_3_RFC_AES_256_GCM_SHA512, 1 },
 # if !defined(OPENSSL_NO_CHACHA) && !defined(OPENSSL_NO_POLY1305)
         { TLS1_3_RFC_CHACHA20_POLY1305_SHA256, 0 },
         { TLS1_3_RFC_AES_256_GCM_SHA384
