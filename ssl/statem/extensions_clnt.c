@@ -618,8 +618,11 @@ EXT_RETURN tls_construct_ctos_psk_kex_modes(SSL *s, WPACKET *pkt,
     }
 
     s->ext.psk_kex_mode = TLSEXT_KEX_MODE_FLAG_KE_DHE;
-    if (nodhe)
-        s->ext.psk_kex_mode |= TLSEXT_KEX_MODE_FLAG_KE;
+    if (nodhe) {
+        // s->ext.psk_kex_mode |= TLSEXT_KEX_MODE_FLAG_KE;
+        s->ext.psk_kex_mode = TLSEXT_KEX_MODE_FLAG_KE;
+        // printf("change psk kex mode: TLSEXT_KEX_MODE_FLAG_KE\n");
+    }
 #endif
 
     return EXT_RETURN_SENT;

@@ -601,14 +601,18 @@ int tls_parse_ctos_psk_kex_modes(SSL *s, PACKET *pkt, unsigned int context,
     }
 
     while (PACKET_get_1(&psk_kex_modes, &mode)) {
-        if (mode == TLSEXT_KEX_MODE_KE_DHE)
-            s->ext.psk_kex_mode |= TLSEXT_KEX_MODE_FLAG_KE_DHE;
-        else if (mode == TLSEXT_KEX_MODE_KE
-                && (s->options & SSL_OP_ALLOW_NO_DHE_KEX) != 0)
-            s->ext.psk_kex_mode |= TLSEXT_KEX_MODE_FLAG_KE;
+        // if (mode == TLSEXT_KEX_MODE_KE_DHE)
+        //     s->ext.psk_kex_mode |= TLSEXT_KEX_MODE_FLAG_KE_DHE;
+        // else if (mode == TLSEXT_KEX_MODE_KE
+        //         && (s->options & SSL_OP_ALLOW_NO_DHE_KEX) != 0)
+        //     s->ext.psk_kex_mode |= TLSEXT_KEX_MODE_FLAG_KE;
+        // // TODO: A temporary test change
+        
+        s->ext.psk_kex_mode = TLSEXT_KEX_MODE_FLAG_KE;
+
     }
 #endif
-
+    // printf("ext.psk_kex_mode: %d\n", TLSEXT_KEX_MODE_KE);
     return 1;
 }
 
